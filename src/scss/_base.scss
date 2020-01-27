@@ -1,0 +1,99 @@
+// Fonts
+
+// Unclassed
+  html {
+    font-size: 14px;
+    font-weight: normal;
+    font-family: $font_myriad;
+    padding: 0;
+    margin: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  body {
+    min-height: 100%;
+    min-width: 320px;
+    background: $c_page_bg;
+    color: $c_text;
+  }
+
+  a {
+    color: $c_links;
+    cursor: pointer;
+  }
+  img,
+  video {
+    max-width: 100%;
+  }
+  ::selection {
+    background: $c_blue_light;
+  }
+
+// Forms
+  input,
+  button {
+    &[disabled] {
+      pointer-events: none;
+      opacity: .9;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 1px 0 rgba($c_gold, 0.5);
+    }
+  }
+    input[type=text] {
+      border: 0;
+      padding: 16px;
+      background: $c_input_bg;
+
+      font-size: 16px;
+      color: $c_text;
+      @include breakpoint($desktop) {
+        padding: 8px 10px;
+      }
+    }
+
+// Helpers
+  .preloader {
+    pointer-events: none;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba($c_page_bg, 0.65);
+      background-image: url('./assets/preloader.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100px;
+      opacity: 0;
+      animation-name: preloader-show;;
+      animation-delay: .5s;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      z-index: 100;
+    }
+  }
+  @keyframes preloader-show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+// Layout width
+  .width-wrapper {
+    max-width: $layout_max_width;
+    margin: 0 auto;
+  }
