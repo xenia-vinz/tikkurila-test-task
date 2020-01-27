@@ -26,6 +26,10 @@
   a {
     color: $c_links;
     cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   img,
   video {

@@ -33,14 +33,18 @@
             <a href="/about" class="main-menu__link main-menu__link">Tietoa palvelusta</a>
           </div>
           <div class="main-menu__item main-menu__item--btn">
-            <a href="/about" class="main-menu__link request-btn">
-              <span class="request-btn__text">Pyydä tarjous</span>
-              <span class="request-btn__counter">(0)</span>
+            <a href="/about" class="main-menu__link request-counter-btn">
+              <span class="request-counter-btn__text">Pyydä tarjous</span>
+              <span class="request-counter-btn__counter">(0)</span>
             </a>
           </div>
 
         </div>
       </nav>
+
+      <div class="main-menu-trigger">
+        <div class="main-menu-trigger__icon"></div>
+      </div>
 
     </div>
   </header>
