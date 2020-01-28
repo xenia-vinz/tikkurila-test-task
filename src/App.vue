@@ -8,7 +8,6 @@
     <main
       class="main">
       <div class="main__inner">
-
         <SearchPanel />
         <Painters />
       </div>
@@ -45,4 +44,8 @@ export default {
 <style lang="scss">
   @import '@/scss/_utils.scss';
   @import '@/scss/_base.scss';
+  .main {
+    &__inner {
+    }
+  }
 </style>

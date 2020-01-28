@@ -4,11 +4,16 @@
   $c_white: #fff;
   $c_gold: #ab8b3f;
   $c_brown: #867d67;
+  $c_brown1: #5e5748;
   $c_blue_dark: #3a3f6d;
   $c_blue_light: #ccf4ff;
   $c_gray: #4f4f4f;
   $c_gray2: #ccc;
   $c_gray_light: #f5f5f5;
+  $c_gray_light1: #fdfdfd;
+  $c_gray_light2: #e7e6e6;
+  $c_gray_light3: #e2e2e2;
+  $c_gray_light4: #f7f7f7;
   $c_green: #6ecd5b;
 
 // Fonts definitions
@@ -16,12 +21,22 @@
 
 // Layout width
   $mobile: 320px;
-  $desktop: 700px;
+  $desktop: 728px;
   $layout_max_width: 940px;
 
 // Layout colors
   $c_page_bg: $c_white;
   $c_text: $c_gray;
   $c_links: $c_gold;
+  $c_accent: $c_brown;
 
   $c_input_bg: $c_white;
+  $c_input_border: $c_gray2;
+
+  $c_header_bg: $c_white;
+  $c_header_bg_gradient: linear-gradient(180deg, $c_white 0, $c_white 29%, $c_gray_light1 37%, $c_gray_light2 86%, $c_gray_light3);
+  $c_menu_bg: $c_brown;
+  $c_menu_items_bg_mobile: $c_brown1;
+
+  $c_search_panel_top_bg_gradient: linear-gradient(0deg,#e2e2e1,#fffffe);
+  $c_search_panel_bottom_bg: $c_gray_light4;

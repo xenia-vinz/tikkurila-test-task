@@ -2,14 +2,11 @@
   <div class="painters">
     <div class="painters__inner width-wrapper">
 
-      <Painter />
-
       <Painter
         v-for="item in painters"
         v-bind:key="item.id"
         v-bind:painter="item"
       ></Painter>
-
 
     </div>
   </div>
@@ -33,7 +30,7 @@ export default {
           location: 'Vantaa',
           phone: '050 000 1122',
           email: 'painter@gmail.com',
-          descripton: 'Artisania on sisustusmaalaukseen, tapetointiin, erikois –ja efektimaalaukseen erikoistunut yritys.',
+          descripton: '<p>Artisania on sisustusmaalaukseen, tapetointiin, erikois –ja efektimaalaukseen erikoistunut yritys.</p>',
           projects: 11,
           tags: [
             'Puujulkisivut',
@@ -52,7 +49,7 @@ export default {
           location: 'Vantaa',
           phone: '050 000 1122',
           email: 'painter@gmail.com',
-          descripton: 'Artisania on sisustusmaalaukseen, tapetointiin, erikois –ja efektimaalaukseen erikoistunut yritys.',
+          descripton: '<p>Artisania on sisustusmaalaukseen, tapetointiin, erikois –ja efektimaalaukseen erikoistunut yritys.</p>',
           projects: 0,
           tags: [
             'Puujulkisivut',

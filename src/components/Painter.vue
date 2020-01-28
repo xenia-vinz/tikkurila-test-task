@@ -13,11 +13,13 @@
       <div class="painter-data">
 
         <div class="painter-data__item painter-data__item--full-width">
-          <a
-            class="painter-name"
-            :href="painter.url">
-            {{ painter.name }}
-          </a>
+          <div class="painter-name">
+            <a
+              class="painter-name__link"
+              :href="painter.url">
+              {{ painter.name }}
+            </a>
+          </div>
         </div>
         <div class="painter-data__item painter-data__item--full-width">
           <div class="painter-property painter-property--location">
@@ -54,7 +56,7 @@
             <li
               v-for="(tag, index) in painter.tags"
               v-bind:key="`tag-${index}`"
-              class="painter-tags-item">
+              class="painter-tags__item">
                 {{ tag }}
             </li>
           </ul>
@@ -62,12 +64,11 @@
       </div>
 
       <div class="painter-actions">
-        <div class="painter-actions__btn request-btn">
-          <span class="request-counter-btn__icon"></span>
-          <span class="request-counter-btn__text">Pyydä tarjous!</span>
-        </div>
+        <button class="painter-actions__btn request-btn">
+          <span class="request-btn__text">Pyydä tarjous!</span>
+        </button>
         <div class="painter-projects-counter">
-          <div class="painter-projects-counter__icon"></div>
+          <span class="painter-projects-counter__icon" title="Projektien määrä"></span>
           <div class="painter-projects-counter__text">{{ painter.projects }}</div>
         </div>
       </div>
@@ -88,11 +89,27 @@ export default {
 <style scoped lang="scss">
   @import '@/scss/_utils.scss';
   .painter {
+    padding: 18px 0;
+    border-top: 1px solid $c_gray_light3;
+    &:first-child {
+      border-top: 0;
+    }
     &__inner {
+      @include breakpoint($desktop) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
     }
   }
     .painter-avatar {
+      max-width: 50%;
+      @include breakpoint($desktop) {
+        flex-basis: 25%;
+        max-width: 100%;
+      }
       &__image {
+        max-width: 100%;
       }
     }
     .painter-data {
@@ -100,30 +117,49 @@ export default {
       justify-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
-
       &__item {
+        margin: 2px 29px 2px 0;
         &--full-width {
           width: 100%;
+          margin: 2px 0;
         }
       }
     }
       .painter-name {
+        margin: 0 0 5px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        letter-spacing: .02rem;
+        &__link {
+        }
       }
       .painter-property {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        color: $c_text;
 
         // Icons
           &:before {
             content: '';
             display: none;
             @include bg();
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
+            margin: 0 5px 0 0;
           }
 
+        // Label
+          &__label {
+            padding: 3px 0 0;
+            &--link {
+            }
+          }
+
+        // Specifics
           &--location {
+            font-size: 1.2rem;
+            text-transform: uppercase;
             &:before {
               display: block;
               background-image: url('../assets/pin.svg');
@@ -141,27 +177,92 @@ export default {
               background-image: url('../assets/mail.svg');
             }
           }
-
-        // Label
-          &__label {
-            &--link {
+      }
+      .painter-description {
+        margin: 5px 0 0;
+        font-size: 1.3rem;
+        font-weight: 200;
+        line-height: 1.5;
+      }
+      .painter-tags {
+        display: block;
+        font-size: 1.15rem;
+        font-weight: 700;
+        &__item {
+          display: inline;
+          &:before {
+            content: ' •';
+          }
+          &:first-child {
+            &:before {
+              display: none;
             }
           }
+        }
       }
     .painter-actions {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 20px 0 0;
+      padding: 15px 0;
+      border-top: 1px dotted $c_gray2;
       &__btn {
+        order: 2;
+        @include breakpoint($desktop) {
+          order: 1;
+        }
       }
     }
       .request-btn {
-        &__icon {
+        @include btn();
+        position: relative;
+        flex-basis: calc(100% - 90px);
+
+        &--selected {
+          background-color: $c_green;
         }
         &__text {
+          &:before {
+            content: '';
+            display: none;
+            vertical-align: middle;
+            width: 16px;
+            height: 16px;
+            margin: 0 6px 0 0;
+            @include bg();
+            background-image: url('../assets/check-white.svg');
+          }
+          .request-btn--selected &:before {
+            display: inline-block;
+          }
         }
       }
       .painter-projects-counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 80px;
+        order: 1;
+        @include breakpoint($desktop) {
+          order: 2;
+          flex-direction: column;
+        }
+
         &__icon {
+          display: block;
+          width: 18px;
+          height: 18px;
+          @include bg();
+          background-image: url('../assets/house.svg');
+          margin: 0 5px 0 0;
+          @include breakpoint($desktop) {
+            margin: 0 0 5px;
+          }
         }
         &__text {
+          padding: 3px 0 0;
+          text-align: center;
         }
       }
 

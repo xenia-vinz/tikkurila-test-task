@@ -39,27 +39,65 @@
   :-ms-input-placeholder      {color:$color;}
 }
 
-@mixin btn () {
-  padding: 17px 39px;
+
+@mixin clrBtn () {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@mixin btn ($bg: $c_brown, $hoverBg: $c_green, $textColor: $c_white) {
+  padding: 15px 28px;
 
   border: 0;
-  background: $c_red;
-  color: $c_sand;
+  background: $bg;
+  color: $textColor;
 
-  font-size: 14px;
-  line-height: 17px;
-  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: .8;
+  font-weight: 700;
+  text-align: center;
 
   cursor: pointer;
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 1px 0 rgba($c_sand_dark, 0.5);
+  &:hover {
+    background: $hoverBg;
   }
-  @include breakpoint($tablet) {
-    font-size: 16px;
-    line-height: 19px;
+
+  &:active,
+  &:focus {
   }
   @include breakpoint($desktop) {
-    padding: 17px 28px;
+    padding: 17px 32px;
+  }
+}
+
+@mixin roundedBtn () {
+  display: block;
+  background: $c_white;
+  border: 1px solid $c_black;
+  border-radius: 20px;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+@mixin linkUnderline ($color) {
+  position: relative;
+  padding-bottom: 5px;
+  cursor: pointer;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: $color;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
   }
 }

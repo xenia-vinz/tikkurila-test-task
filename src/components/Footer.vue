@@ -8,7 +8,7 @@
           <div class="footer-content-block">
             <div class="footer-content-block__inner">
               <div class="footer-content-block__title">Löydä lähin luotettava tekijä!</div>
-              <div class="footer-content-block__content">
+              <div class="footer-content-block__content text-content">
                 <p>Tekijäpankista löydät osaavat ja luotettavat tekijät maalaustyöllesi.</p>
               </div>
               <div class="footer-content-block__links">
@@ -41,7 +41,9 @@
       </div>
 
       <div class="footer-copyright">
-        <div class="footer-copyright__inner">
+        <div
+          id="text"
+          class="footer-copyright__inner text-content">
           <p>© 2019 Tikkurila Oyj - <a href="https://www.tikkurila.fi">www.tikkurila.fi</a></p>
         </div>
       </div>
@@ -61,56 +63,72 @@ export default {
 <style scoped lang="scss">
   @import '@/scss/_utils.scss';
   .footer {
+    padding: 14px 0;
     &__inner {
     }
   }
     .footer-content {
       &__inner {
-
+        @include breakpoint($desktop) {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin: 0 -20px;
+        }
       }
     }
       .footer-content-block {
+        margin: 0 0 20px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @include breakpoint($desktop) {
+          flex-basis: 50%;
+          margin: 0 20px;
+        }
         &__inner {
-
         }
           &__title {
-
+            margin: 0 0 10px;
+            font-size: 1.6rem;
+            font-weight: 200;
           }
           &__content {
-            // WYSIWYG content
+            font-size: 1.3rem;
+            font-weight: 200;
+            line-height: 1.6;
+            .text-content {
               p {
-
+                font-size: 1.3rem;
+                font-weight: 200;
+                line-height: 1.6;
               }
-                a {
-
-                }
-
+            }
           }
           &__links {
-
           }
       }
         .footer-menu {
+          list-style: none inside none;
+          margin: 24px 0 0;
+          padding: 0;
           &__item {
-
           }
             &__item-link {
-
+              font-size: 1.35rem;
+              &:after {
+                content: '»';
+                display: inline-block;
+                margin-left: 3px;
+                color: $c_black2;
+              }
             }
-
         }
-
     .footer-copyright {
+      padding: 50px 0 0;
       &__inner {
-
+        font-size: 1.2rem;
+        text-align: center;
       }
-
-      // WYSIWYG content
-        p {
-
-        }
-          a {
-
-          }
     }
 </style>

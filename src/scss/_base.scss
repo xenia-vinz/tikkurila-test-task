@@ -1,10 +1,10 @@
 // Fonts
 
 // Unclassed
+  :root {
+    font-size: 12px;
+  }
   html {
-    font-size: 14px;
-    font-weight: normal;
-    font-family: $font_myriad;
     padding: 0;
     margin: 0 !important;
     overflow-y: auto !important;
@@ -21,6 +21,10 @@
     min-width: 320px;
     background: $c_page_bg;
     color: $c_text;
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: $font_myriad;
+    line-height: 1.4;
   }
 
   a {
@@ -47,20 +51,18 @@
       opacity: .9;
     }
     &:focus {
-      outline: none;
-      box-shadow: 0 0 1px 0 rgba($c_gold, 0.5);
+      // outline: none;
+      // box-shadow: 0 0 5px 5px rgba($c_blue_light, 0.5);
     }
   }
     input[type=text] {
       border: 0;
-      padding: 16px;
+      padding: 10px 20px 15px;
       background: $c_input_bg;
-
-      font-size: 16px;
+      border: 1px solid $c_input_border;
+      border-radius: 3px;
+      font-size: 1.4rem;
       color: $c_text;
-      @include breakpoint($desktop) {
-        padding: 8px 10px;
-      }
     }
 
 // Helpers
@@ -87,17 +89,31 @@
       z-index: 100;
     }
   }
-  @keyframes preloader-show {
-    0% {
-      opacity: 0;
+  // Styles for text from WYSIWYG editor
+    .text-content {
+      > p {
+        font-size: 14px !important;
+        font-family: $font_myriad !important;
+        &:last-of-type {
+          margin-bottom: 5px;
+          margin-bottom: 0;
+        }
+      }
+      > img,
+      > video {
+        max-width: 100% !important;
+      }
+      ul {
+        list-style-position: inside;
+      }
     }
-    100% {
-      opacity: 1;
-    }
-  }
 
 // Layout width
   .width-wrapper {
     max-width: $layout_max_width;
     margin: 0 auto;
+    padding: 0 14px;
+    @include breakpoint($desktop) {
+      padding: 0;
+    }
   }
