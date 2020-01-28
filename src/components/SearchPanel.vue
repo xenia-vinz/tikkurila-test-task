@@ -28,15 +28,22 @@
             </div>
           </div>
 
-          <div class="search-panel-sorting">
+          <div
+            :class="{'search-panel-sorting--hidden': !sortings}"
+            class="search-panel-sorting">
             <div class="search-panel-sorting__title">Lajitteluperuste</div>
             <div class="search-panel-sorting__items">
               <span
                 v-for="item in sortings"
-                v-bind:key="item.slug"
-                :class="{'search-panel-sorting__item--active': currentSorting == item.slug}"
+                :key="item.slug"
+                :class="[
+                  {
+                    'search-panel-sorting__item--active':
+                    (currentSorting == item.slug)
+                  }
+                ]"
                 class="search-panel-sorting__item"
-                @click="setSorting()"
+                @click="setSorting(item.slug)"
               >
                 {{ item.title }}
               </span>
@@ -153,29 +160,22 @@ export default {
   },
   data() {
     return {
-      sortings: [
-        {
-          slug: 'työnäytteet',
-          title: 'Työnäytteet',
-        },
-        {
-          slug: 'nimi',
-          title: 'Nimi',
-        },
-        {
-          slug: 'palaute',
-          title: 'Palaute',
-        },
-      ],
     };
   },
   computed: {
+    sortings() {
+      return this.$store.getters['sortings/getData'];
+    },
     currentSorting() {
-      return 'työnäytteet';
+      return this.$store.getters['sortings/getCurrent'];
     },
   },
+  mounted() {
+    this.$store.dispatch('sortings/loadData');
+  },
   methods: {
-    setSorting() {
+    setSorting(data) {
+      this.$store.dispatch('sortings/setCurrent', data);
       return false;
     },
   },
@@ -246,6 +246,14 @@ export default {
         }
       .search-panel-sorting {
         margin: 14px 0 0;
+        visibility: visible;
+        opacity: 1;
+
+        &--hidden {
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity .2s linear;
+        }
         @include breakpoint($desktop) {
           flex-basis: 50%;
           display: flex;

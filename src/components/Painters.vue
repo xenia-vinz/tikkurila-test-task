@@ -17,6 +17,9 @@ import Painter from './Painter.vue';
 
 export default {
   name: 'Painters',
+  components: {
+    Painter,
+  },
   props: {
   },
   data() {
@@ -63,8 +66,17 @@ export default {
       ],
     };
   },
-  components: {
-    Painter,
+  created() {
+    this.$store.subscribe((mutation) => {
+      switch (mutation.type) {
+        case 'sortings/SET_CURRENT':
+          console.log('current sorting', mutation.payload);
+          break;
+        default:
+          // do nothing
+          break;
+      }
+    });
   },
 };
 </script>
