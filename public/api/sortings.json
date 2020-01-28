@@ -1,8 +1,8 @@
 {
   "status": "success",
   "data": {
-    "samples": {
-      "slug": "samples",
+    "projects": {
+      "slug": "projects",
       "title": "Työnäytteet",
       "default": true
     },
