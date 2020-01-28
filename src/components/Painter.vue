@@ -1,5 +1,6 @@
 <template>
-  <div class="painter">
+  <div
+    class="painter">
     <div class="painter__inner">
 
       <div class="painter-avatar">
@@ -55,9 +56,9 @@
           <ul class="painter-tags">
             <li
               v-for="(tag, index) in painter.tags"
-              v-bind:key="`tag-${index}`"
+              :key="`painter-${painter.guid}-tag-${index}`"
               class="painter-tags__item">
-                {{ tag }}
+                {{ tag.title }}
             </li>
           </ul>
         </div>
@@ -91,6 +92,7 @@ export default {
   .painter {
     padding: 18px 0;
     border-top: 1px solid $c_gray_light3;
+
     &:first-child {
       border-top: 0;
     }

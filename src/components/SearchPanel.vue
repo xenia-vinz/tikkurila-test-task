@@ -56,83 +56,32 @@
       <div class="search-panel-bottom">
         <div class="search-panel-bottom__inner">
 
-          <div class="search-panel-filters">
+          <div
+            :class="{'search-panel-filters--hidden': !tags}"
+            class="search-panel-filters">
             <div class="search-panel-filters__inner width-wrapper">
               <div class="search-panel-filters__title">
                 Valitse maalaustyö
               </div>
               <div class="search-panel-filters__tags">
                 <ul class="search-panel-tags">
-                  <li class="search-panel-tags__tag">
+                  <li
+                    v-for="item in tags"
+                    :key="item.slug"
+                    :data-tag="item.slug"
+                    :data-selected="item.selected"
+                    :class="[
+                      {
+                        'search-panel-tags__tag--active': item.selected
+                      }
+                    ]"
+                    class="search-panel-tags__tag"
+                    @click="setTag(item.slug, item.selected)">
                     <span
                       class="search-panel-tags__tag-btn"
                       data-tag="terassit"
                       >
-                      Terassit
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="katot"
-                      >
-                      Katot
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="puujulkisivut"
-                      >
-                      Puujulkisivut
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="tasoitustyöt"
-                      >
-                      Tasoitustyöt
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="efektimaalaus"
-                      >
-                      Efektimaalaus
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="sisämaalaukset"
-                      >
-                      Sisämaalaukset
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="lattiat"
-                      >
-                      Lattiat
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="kivijulkisivut_ja_sokkelit"
-                      >
-                      kivijulkisivut ja sokkelit
-                    </span>
-                  </li>
-                  <li class="search-panel-tags__tag">
-                    <span
-                      class="search-panel-tags__tag-btn"
-                      data-tag="ovet_ikkunat_ja_kalusteet"
-                      >
-                      Ovet ikkunat ja kalusteet
+                      {{ item.title }}
                     </span>
                   </li>
                 </ul>
@@ -163,19 +112,36 @@ export default {
     };
   },
   computed: {
-    sortings() {
-      return this.$store.getters['sortings/getData'];
+    sortings: {
+      get() {
+        return this.$store.getters['sortings/getData'];
+      },
     },
-    currentSorting() {
-      return this.$store.getters['sortings/getCurrent'];
+    currentSorting: {
+      get() {
+        return this.$store.getters['sortings/getCurrent'];
+      },
+    },
+    tags: {
+      get() {
+        return this.$store.getters['tags/getData'];
+      },
     },
   },
   mounted() {
     this.$store.dispatch('sortings/loadData');
+    this.$store.dispatch('tags/loadData');
   },
   methods: {
     setSorting(data) {
       this.$store.dispatch('sortings/setCurrent', data);
+      return false;
+    },
+    setTag(data, isActive) {
+      this.$store.dispatch('tags/toggleSelected', {
+        slug: data,
+        selected: !isActive,
+      });
       return false;
     },
   },
@@ -295,6 +261,14 @@ export default {
       }
     }
     .search-panel-filters {
+      visibility: visible;
+      opacity: 1;
+
+      &--hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .2s linear;
+      }
       &__title {
         margin: 0 0 10px;
         font-size: 1.2rem;
@@ -318,6 +292,11 @@ export default {
             @include roundedBtn();
             font-size: 1.2rem;
             font-weight: 400;
+            &:hover,
+            .search-panel-tags__tag--active & {
+              background: $c_accent;
+              color: $c_white;
+            }
           }
       }
     .search-panel-description {
