@@ -62,6 +62,8 @@ export default {
         padding: 0 0 0 64px;
         @include breakpoint($desktop) {
           position: relative;
+          padding-left: 14px;
+          padding-right: 14px;
         }
       }
     }
@@ -73,9 +75,10 @@ export default {
         z-index: 9905;
 
         @include breakpoint($desktop) {
+          position: static;
+          flex-basis: calc(1/6 * 100%);
           top: 0;
           left: 0;
-          width: 100px;
         }
 
         &__link {
@@ -89,12 +92,16 @@ export default {
           @include breakpoint($desktop) {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 14px;
+            width: 100px;
           }
         }
       }
       .header-slogan {
         padding: 0 20px 0 55px;
+        @include breakpoint($desktop) {
+          padding-left: 0;
+        }
 
         &__text {
           padding: 0.35rem 0 0;

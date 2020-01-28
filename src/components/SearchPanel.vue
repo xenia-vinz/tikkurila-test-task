@@ -192,21 +192,35 @@ export default {
       background: $c_search_panel_top_bg_gradient;
       padding: 12px 0;
       &__inner {
+        @include breakpoint($desktop) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
       }
     }
       .search-panel-form {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        @include breakpoint($desktop) {
+          flex-basis: 50%;
+        }
         &__title {
           flex-basis: 25%;
           padding: 0.25rem 0 0;
           font-size: 1.2rem;
           font-weight: 700;
           text-transform: uppercase;
+          @include breakpoint($desktop) {
+            flex-basis: calc(1/3 * 100%);
+          }
         }
         &__form {
           flex-basis: 75%;
+          @include breakpoint($desktop) {
+            flex-basis: calc(2/3 * 100%);
+          }
         }
       }
         .search-form {
@@ -232,10 +246,19 @@ export default {
         }
       .search-panel-sorting {
         margin: 14px 0 0;
+        @include breakpoint($desktop) {
+          flex-basis: 50%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+        }
         &__title {
           font-size: 1.2rem;
           font-weight: 700;
           text-transform: uppercase;
+          @include breakpoint($desktop) {
+            margin: 0 28px 0 0;
+          }
         }
         &__items {
           display: flex;
@@ -284,6 +307,8 @@ export default {
         }
           &__tag-btn {
             @include roundedBtn();
+            font-size: 1.2rem;
+            font-weight: 400;
           }
       }
     .search-panel-description {

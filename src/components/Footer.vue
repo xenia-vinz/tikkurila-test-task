@@ -64,6 +64,10 @@ export default {
   @import '@/scss/_utils.scss';
   .footer {
     padding: 14px 0;
+    @include breakpoint($desktop) {
+      margin: 40px 0 0;
+      border-top: 1px solid $c_gray_light3;
+    }
     &__inner {
     }
   }

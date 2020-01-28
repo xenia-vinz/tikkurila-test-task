@@ -3,7 +3,7 @@
     :class="{'main-menu--open': isOpen}"
     class="main-menu">
 
-    <nav class="main-menu__items width-wrapper">
+    <nav class="main-menu__items">
       <div class="main-menu__item main-menu__item--home">
         <a href="/" class="main-menu__link">Home</a>
       </div>
@@ -14,19 +14,19 @@
         <a href="/about" class="main-menu__link">Tietoa palvelusta</a>
       </div>
       <div class="main-menu__item main-menu__item--btn">
-        <a href="/about" class="main-menu__link request-counter-btn">
+        <button class="main-menu__link request-counter-btn" disabled>
           <span class="request-counter-btn__text">Pyydä tarjous</span>
-          <span class="request-counter-btn__counter">(0)</span>
-        </a>
+          <span class="request-counter-btn__counter">0</span>
+        </button>
       </div>
     </nav>
 
-    <div class="main-menu-trigger">
-      <div
+    <button class="main-menu-trigger">
+      <span
         @click="toggleMenu"
         class="main-menu-trigger__icon">
-      </div>
-    </div>
+      </span>
+    </button>
 
   </div>
 </template>
@@ -59,6 +59,13 @@ export default {
     padding: 0 25px;
     background: $c_menu_bg;
     min-height: 65px;
+
+    @include breakpoint($desktop) {
+      display: block;
+      padding: 17px 0;
+      min-height: 0;
+    }
+
     &__items {
       position: absolute;
       top: 100%;
@@ -70,20 +77,28 @@ export default {
       margin: 0;
       background: $c_menu_items_bg_mobile;
 
-      max-height: 0;
       overflow: hidden;
-      transition: max-height .5s linear;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .3s linear;
 
       .main-menu--open & {
-        max-height: 100vh;
-        transition: max-height 1s linear;
+        transform: scaleY(1);
       }
 
       @include breakpoint($desktop) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: relative;
         top: 0;
         left: 0;
         width: auto;
+        max-width: $layout_max_width;
+        margin: 0 auto;
+        padding: 0 14px;
+        background: transparent;
+        transform: none;
       }
     }
       &__item {
@@ -92,11 +107,19 @@ export default {
         &:last-child {
           border-bottom: 0;
         }
+        @include breakpoint($desktop) {
+          border: 0;
+        }
+
         &--home {
           display: none;
           @include breakpoint($desktop) {
             display: block;
+            margin-left: calc(1/6 * 100% - 14px);
           }
+        }
+        &--btn {
+          margin-left: auto;
         }
       }
         &__link {
@@ -105,17 +128,30 @@ export default {
           &:hover {
             text-decoration: none;
           }
+          @include breakpoint($desktop) {
+            text-transform: uppercase;
+            font-size: 1.3rem;
+          }
           // Specifics
             .main-menu__item--home & {
+              display: block;
               font-size: 0;
               &:before {
                 content: '';
                 display: block;
+                width: 18px;
+                height: 18px;
+                @include bg();
+                background-image: url('../assets/home-white.svg');
               }
             }
         }
   }
     .main-menu-trigger {
+      @include breakpoint($desktop) {
+        display: none;
+      }
+
       &__icon {
         display: block;
         width: 30px;
@@ -134,13 +170,26 @@ export default {
     }
 
   .request-counter-btn {
+    @include breakpoint($desktop) {
+      @include btn();
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $c_white;
+    }
     &__text {
-
+      @include breakpoint($desktop) {
+        display: block;
+      }
     }
     &__counter {
       display: none;
       @include breakpoint($desktop) {
         display: block;
+        margin: 0 0 0 5px;
+        .request-counter-btn[disabled] & {
+          display: none;
+        }
       }
     }
   }

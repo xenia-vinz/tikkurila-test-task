@@ -105,8 +105,9 @@ export default {
     .painter-avatar {
       max-width: 50%;
       @include breakpoint($desktop) {
-        flex-basis: 25%;
+        flex-basis: calc(1/6 * 100%);
         max-width: 100%;
+        padding: 0 20px 0 0;
       }
       &__image {
         max-width: 100%;
@@ -117,11 +118,20 @@ export default {
       justify-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
+      @include breakpoint($desktop) {
+        flex-basis: calc(2/3 * 100%);
+      }
       &__item {
         margin: 2px 29px 2px 0;
         &--full-width {
           width: 100%;
           margin: 2px 0;
+        }
+
+        @include breakpoint($desktop) {
+          &:first-child {
+            margin-top: 0;
+          }
         }
       }
     }
@@ -207,6 +217,13 @@ export default {
       margin: 20px 0 0;
       padding: 15px 0;
       border-top: 1px dotted $c_gray2;
+      @include breakpoint($desktop) {
+        flex-basis: calc(1/6 * 100%);
+        flex-direction: column;
+        margin: 0;
+        padding: 0 0 0 20px;
+        border-top: 0;
+      }
       &__btn {
         order: 2;
         @include breakpoint($desktop) {
@@ -218,6 +235,12 @@ export default {
         @include btn();
         position: relative;
         flex-basis: calc(100% - 90px);
+        @include breakpoint($desktop) {
+          flex-basis: 100%;
+          width: 100%;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
 
         &--selected {
           background-color: $c_green;
