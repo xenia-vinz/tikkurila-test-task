@@ -251,6 +251,7 @@ export default {
           display: flex;
           justify-content: flex-end;
           align-items: flex-start;
+          padding: 0 0 0 20px;
         }
         &__title {
           font-size: 1.2rem;

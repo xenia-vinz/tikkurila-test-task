@@ -119,7 +119,10 @@ export default {
           }
         }
         &--btn {
-          margin-left: auto;
+          @include breakpoint($desktop) {
+            margin-left: auto;
+            padding-right: 0;
+          }
         }
       }
         &__link {
