@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "data": {
+    "projects": {
+      "slug": "projects",
+      "title": "Työnäytteet",
+      "default": true
+    },
+    "name": {
+      "slug": "name",
+      "title": "Nimi",
+      "default": false
+    },
+    "feedbacks": {
+      "slug": "feedbacks",
+      "title": "Palaute",
+      "default": false
+    }
+  }
+}

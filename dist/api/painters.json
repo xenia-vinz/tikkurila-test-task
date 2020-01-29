@@ -1,0 +1,541 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "guid": "a1",
+      "url": "/company/aaa",
+      "name": "Juhani Korhonen",
+      "avatar": "/images/painter-1.jpg",
+      "location": "Espoo",
+      "phone": "050 000 0001",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Artisania on sisustusmaalaukseen, tapetointiin, erikois –ja efektimaalaukseen erikoistunut yritys.</p>",
+      "projects": "25",
+      "feedbacks": "10",
+      "tags": [
+        {
+          "slug": "wooden-facades",
+          "title": "Puujulkisivut"
+        },
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    },
+    {
+      "guid": "b1",
+      "url": "/company/bbb",
+      "name": "Maria Viratnen",
+      "avatar": "/images/painter-2.jpg",
+      "location": "Hamina",
+      "phone": "050 000 0002",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit eleifend velit quis cursus. Nulla varius nisl et massa euismod finibus.</p><p>Vivamus auctor euismod ex, ut accumsan lacus consectetur non. Integer ut placerat erat.</p>",
+      "projects": "0",
+      "feedbacks": "0",
+      "tags": [
+        {
+          "slug": "wooden-facades",
+          "title": "Puujulkisivut"
+        },
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        }
+      ]
+    },
+    {
+      "guid": "c1",
+      "url": "/company/bbb",
+      "name": "Johannes Mäkinen",
+      "avatar": "/images/painter-3.jpg",
+      "location": "Joensuu",
+      "phone": "050 000 0003",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Fusce consectetur venenatis mollis. Integer vulputate ligula quam, id scelerisque sem varius ac. Cras mattis nisi arcu, quis semper dui auctor eget.</p>",
+      "projects": "99",
+      "feedbacks": "8",
+      "tags": [
+        {
+          "slug": "wooden-facades",
+          "title": "Puujulkisivut"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        }
+      ]
+    },
+    {
+      "guid": "a2",
+      "url": "/company/aaa",
+      "name": "Helena Nieminen",
+      "avatar": "/images/painter-4.jpg",
+      "location": "Imatra",
+      "phone": "050 000 0011",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Curabitur quis pellentesque arcu, eu euismod orci. Nam in eros metus. Proin a lorem eget quam scelerisque scelerisque. Mauris a auctor est. Cras sit amet venenatis turpis. Donec a augue enim. Fusce vitae quam et dui tempus venenatis sed a risus. Nullam purus elit, condimentum at congue eu, viverra imperdiet nunc. Vestibulum id dui sapien. In lacinia a urna ut tincidunt.</p>",
+      "projects": "50",
+      "feedbacks": "12",
+      "tags": [
+        {
+          "slug": "terraces",
+          "title": "Terassit"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    },
+    {
+      "guid": "b2",
+      "url": "/company/bbb",
+      "name": "Olavi Mäkelä",
+      "avatar": "/images/painter-5.jpg",
+      "location": "Helsinki",
+      "phone": "050 000 0012",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Suspendisse potenti.</p>",
+      "projects": "12",
+      "feedbacks": "1",
+      "tags": [
+        {
+          "slug": "ceilings",
+          "title": "Katot"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        }
+      ]
+    },
+    {
+      "guid": "c2",
+      "url": "/company/bbb",
+      "name": "Anneli Hämäläinen",
+      "avatar": "/images/painter-6.jpg",
+      "location": "Lappeenranta",
+      "phone": "050 000 0013",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Nullam vehicula pellentesque fringilla. Vivamus risus enim, fringilla nec turpis a, fringilla euismod elit. Vestibulum ultrices nunc elit, non viverra ante aliquet nec. Phasellus pretium eget urna sit amet commodo. Vestibulum semper fermentum eros, ac bibendum diam tincidunt ac.</p>",
+      "projects": "0",
+      "feedbacks": "0",
+      "tags": [
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        }
+      ]
+    },
+    {
+      "guid": "a3",
+      "url": "/company/aaa",
+      "name": "Antero Laine",
+      "avatar": "/images/painter-7.jpg",
+      "location": "Kuopio",
+      "phone": "050 000 0021",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Phasellus vitae convallis ipsum, eget maximus lectus.</p>",
+      "projects": "36",
+      "feedbacks": "36",
+      "tags": [
+        {
+          "slug": "wooden-facades",
+          "title": "Puujulkisivut"
+        },
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    },
+    {
+      "guid": "b3",
+      "url": "/company/bbb",
+      "name": "Johanna Heikkinen",
+      "avatar": "/images/painter-8.jpg",
+      "location": "Salo",
+      "phone": "050 000 0022",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Etiam commodo pretium neque id placerat. Curabitur tristique, nunc ut pellentesque placerat, eros orci accumsan felis, vel sollicitudin metus nunc nec quam. Nam eu malesuada leo.</p>",
+      "projects": "10",
+      "feedbacks": "8",
+      "tags": [
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        }
+      ]
+    },
+    {
+      "guid": "c3",
+      "url": "/company/bbb",
+      "name": "Tapani Järvinen",
+      "avatar": "/images/painter-9.jpg",
+      "location": "Vantaa",
+      "phone": "050 000 0023",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Donec convallis sit amet ipsum eu vestibulum. Mauris eu condimentum diam, luctus pharetra leo.</p>",
+      "projects": "120",
+      "feedbacks": "87",
+      "tags": [
+        {
+          "slug": "ceilings",
+          "title": "Katot"
+        }
+      ]
+    },
+    {
+      "guid": "a4",
+      "url": "/company/aaa",
+      "name": "Kaarina Erkkilä",
+      "avatar": "/images/painter-10.jpg",
+      "location": "Nokia",
+      "phone": "050 000 1001",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Proin mollis nunc vitae est pulvinar, a lobortis tellus viverra. Cras dictum augue eu lectus gravida aliquet. Aliquam ligula velit, tempor at diam eget, facilisis eleifend leo.</p>",
+      "projects": "2",
+      "feedbacks": "1",
+      "tags": [
+        {
+          "slug": "terraces",
+          "title": "Terassit"
+        },
+        {
+          "slug": "ceilings",
+          "title": "Katot"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    },
+    {
+      "guid": "b4",
+      "url": "/company/bbb",
+      "name": "Kalevi Kantola",
+      "avatar": "/images/painter-11.jpg",
+      "location": "Oulu",
+      "phone": "050 000 1002",
+      "email": "painter@gmail.com",
+      "descripton": "<p>In sit amet magna justo. Suspendisse potenti.</p>",
+      "projects": "2",
+      "feedbacks": "0",
+      "tags": [
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        }
+      ]
+    },
+    {
+      "guid": "c4",
+      "url": "/company/bbb",
+      "name": "Marjatta Mikola",
+      "avatar": "/images/painter-12.jpg",
+      "location": "Pori",
+      "phone": "050 000 1003",
+      "email": "painter@gmail.com",
+      "descripton": "<p>In sodales suscipit nunc, quis placerat lectus posuere at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>",
+      "projects": "43",
+      "feedbacks": "25",
+      "tags": [
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        }
+      ]
+    },
+    {
+      "guid": "a5",
+      "url": "/company/aaa",
+      "name": "Tapio Oinonen",
+      "avatar": "/images/painter-13.jpg",
+      "location": "Porvoo",
+      "phone": "050 000 1122",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Integer lacinia, metus nec congue scelerisque, orci lacus auctor tellus, eu consectetur risus turpis quis metus.</p>",
+      "projects": "17",
+      "feedbacks": "1",
+      "tags": [
+        {
+          "slug": "terraces",
+          "title": "Terassit"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    },
+    {
+      "guid": "b5",
+      "url": "/company/bbb",
+      "name": "Anna Parviainen",
+      "avatar": "/images/painter-14.jpg",
+      "location": "Rovaniemi",
+      "phone": "050 000 1133",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Donec eu nisl hendrerit, tempor ex vitae, pulvinar nisi. Duis ut nibh placerat, mollis quam a, vulputate nibh. Aliquam accumsan dolor non hendrerit consectetur. Donec et justo at nisi vestibulum luctus. Pellentesque faucibus accumsan nunc, eget bibendum est ullamcorper ac.</p>",
+      "projects": "22",
+      "feedbacks": "22",
+      "tags": [
+        {
+          "slug": "terraces",
+          "title": "Terassit"
+        },
+        {
+          "slug": "wooden-facades",
+          "title": "Puujulkisivut"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    },
+    {
+      "guid": "c5",
+      "url": "/company/bbb",
+      "name": "Matti Siltanen",
+      "avatar": "/images/painter-15.jpg",
+      "location": "Tampere",
+      "phone": "050 000 1144",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Aenean viverra purus enim, ac luctus turpis sodales id. Donec auctor erat urna, eu ultricies metus faucibus quis. In a vulputate ex, nec lobortis orci.</p>",
+      "projects": "20",
+      "feedbacks": "0",
+      "tags": [
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        }
+      ]
+    },
+    {
+      "guid": "a6",
+      "url": "/company/aaa",
+      "name": "Liisa Rekola",
+      "avatar": "/images/painter-16.jpg",
+      "location": "Turku",
+      "phone": "050 000 2233",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Sed condimentum tellus vel ante sodales, in scelerisque odio consequat. Etiam gravida vestibulum bibendum.</p>",
+      "projects": "1",
+      "feedbacks": "0",
+      "tags": [
+        {
+          "slug": "terraces",
+          "title": "Terassit"
+        },
+        {
+          "slug": "ceilings",
+          "title": "Katot"
+        },
+        {
+          "slug": "wooden-facades",
+          "title": "Puujulkisivut"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    },
+    {
+      "guid": "b6",
+      "url": "/company/bbb",
+      "name": "Ilmari Seppänen",
+      "avatar": "/images/painter-17.jpg",
+      "location": "Valkeakoski",
+      "phone": "050 000 2244",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Sed venenatis urna ullamcorper congue ullamcorper. Aenean laoreet lectus a semper ornare. Nam consectetur tellus sed pharetra tempor.</p>",
+      "projects": "10",
+      "feedbacks": "4",
+      "tags": [
+        {
+          "slug": "ceilings",
+          "title": "Katot"
+        },
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "flooring",
+          "title": "Lattiat"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        }
+      ]
+    },
+    {
+      "guid": "c6",
+      "url": "/company/bbb",
+      "name": "Annikki Tikkanen",
+      "avatar": "/images/painter-18.jpg",
+      "location": "Kerava",
+      "phone": "050 000 2255",
+      "email": "painter@gmail.com",
+      "descripton": "<p>Nulla vel pellentesque erat, et lacinia velit</p>",
+      "projects": "5",
+      "feedbacks": "1",
+      "tags": [
+        {
+          "slug": "terraces",
+          "title": "Terassit"
+        },
+        {
+          "slug": "wooden-facades",
+          "title": "Puujulkisivut"
+        },
+        {
+          "slug": "equalization",
+          "title": "Tasoitustyöt"
+        },
+        {
+          "slug": "effect",
+          "title": "Efektimaalaus"
+        },
+        {
+          "slug": "interior",
+          "title": "Sisämaalaukset"
+        },
+        {
+          "slug": "stone",
+          "title": "Kivijulkisivut ja sokkelit"
+        },
+        {
+          "slug": "doors",
+          "title": "Ovet ikkunat ja kalusteet"
+        }
+      ]
+    }
+  ]
+}
