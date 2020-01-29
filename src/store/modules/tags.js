@@ -20,7 +20,7 @@ export default {
   },
   actions: {
     loadData: (context) => {
-      const path = '/api/tags.json';
+      const path = 'api/tags.json';
 
       Vue.superagent
         .get(path)

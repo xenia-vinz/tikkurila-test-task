@@ -24,7 +24,7 @@ export default {
   },
   actions: {
     loadData: (context) => {
-      const path = '/api/painters.json';
+      const path = 'api/painters.json';
       const currentSorting = context.rootGetters['sortings/getCurrent'];
       const selectedTags = context.rootGetters['tags/getSelected'];
       const filtersQuery = {};

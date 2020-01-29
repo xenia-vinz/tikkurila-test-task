@@ -16,7 +16,7 @@ export default {
   },
   actions: {
     loadData: (context) => {
-      const path = '/api/sortings.json';
+      const path = 'api/sortings.json';
 
       Vue.superagent
         .get(path)
