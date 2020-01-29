@@ -16,22 +16,26 @@ export default {
   },
   actions: {
     loadData: (context) => {
-      const prefix = process.env.NODE_ENV === 'production' ? '/tikkurila-test-task/' : '/';
+      const prefix = process.env.NODE_ENV === 'production' ? '/tikkurila-test-task/' : '/'; // 4githubpages
       const path = `${prefix}api/sortings.json`;
 
       Vue.superagent
         .get(path)
         .accept('json')
         .then((response) => {
-          const reponseBody = response.body || {};
+          const responseBody = response.body || {};
+          const status = Object.prototype.hasOwnProperty.call(responseBody, 'status') ? responseBody.status === 'success' : true; // check server`s response status prop
 
-          if (Object.prototype.hasOwnProperty.call(reponseBody, 'data')) {
-            context.commit('SET_DATA', reponseBody.data);
+          if (status && Object.prototype.hasOwnProperty.call(responseBody, 'data')) {
+            context.commit('SET_DATA', responseBody.data);
+
+            // initial state - picking up default sorting
             if (!context.state.current) {
-              const defaultSorting = (Vue.$_.findKey(reponseBody.data, {
+              const defaultSorting = (Vue.$_.findKey(responseBody.data, {
                 default: true,
               })) || null;
               context.commit('SET_CURRENT', defaultSorting);
+              // ask for sorted data
               context.dispatch('painters/loadData', null, {
                 root: true,
               });
@@ -45,6 +49,7 @@ export default {
     setCurrent: (context, data) => {
       if (context.state.current !== data) {
         context.commit('SET_CURRENT', data);
+        // ask for sorted data only if sorting method has actually changed
         context.dispatch('painters/loadData', null, {
           root: true,
         });

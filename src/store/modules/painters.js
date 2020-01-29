@@ -10,26 +10,19 @@ export default {
     SET_DATA(state, data) {
       Vue.set(state, 'data', data);
     },
-    SET_SELECTED(state, data) {
-      const itemIndex = Vue.$_.findIndex(state.data, {
-        slug: data.slug,
-      });
-      if (itemIndex !== -1) {
-        Vue.set(state.data[itemIndex], 'selected', data.selected);
-      }
-    },
     SET_REQUEST(state, data) {
       Vue.set(state, 'request', data);
     },
   },
   actions: {
     loadData: (context) => {
-      const prefix = process.env.NODE_ENV === 'production' ? '/tikkurila-test-task/' : '/';
+      const prefix = process.env.NODE_ENV === 'production' ? '/tikkurila-test-task/' : '/'; // 4githubpages
       const path = `${prefix}api/painters.json`;
       const currentSorting = context.rootGetters['sortings/getCurrent'];
       const selectedTags = context.rootGetters['tags/getSelected'];
       const filtersQuery = {};
 
+      // form query string
       if (currentSorting) {
         filtersQuery.sort = currentSorting;
       }
@@ -42,17 +35,20 @@ export default {
         .query(filtersQuery)
         .accept('json');
 
+      // abort existing painters list request if needed
       if (context.state.request) {
         context.state.request.abort();
       }
 
+      // do the request
       request
         .then((response) => {
-          const reponseBody = response.body || {};
+          const responseBody = response.body || {};
+          const status = Object.prototype.hasOwnProperty.call(responseBody, 'status') ? responseBody.status === 'success' : true; // check server`s response status prop
 
-          if (Object.prototype.hasOwnProperty.call(reponseBody, 'data')) {
-            // Temporal sorting on client - the server supposed to return filtered values
-            let filtered = reponseBody.data;
+          if (status && Object.prototype.hasOwnProperty.call(responseBody, 'data')) {
+            // Temporal sorting/filterting on client - the server supposed to return filtered values
+            let filtered = responseBody.data;
             if (selectedTags) {
               filtered = filtered.filter((painter) => {
                 const itemTags = painter.tags.map(tag => tag.slug);
@@ -61,7 +57,7 @@ export default {
               });
             }
             if (currentSorting) {
-              const order = currentSorting !== 'name' ? 'desc' : 'acs';
+              const order = currentSorting !== 'name' ? 'desc' : 'asc';
               filtered = Vue.$_.orderBy(
                 filtered,
                 (item) => {
@@ -71,8 +67,12 @@ export default {
                 [order],
               );
             }
+
+            // replace "filtered" with "responseBody.data" after implementing server side filtering
             context.commit('SET_DATA', filtered);
           }
+
+          // clear request variable once the actual request is done
           context.commit('SET_REQUEST', null);
         })
         .catch((err) => {
@@ -80,6 +80,7 @@ export default {
           context.commit('SET_REQUEST', null);
         });
 
+      // memorize the request in order to be able to abort it
       context.commit('SET_REQUEST', request);
     },
     setData: (context, data) => {

@@ -34,6 +34,7 @@ export default {
     },
   },
   mounted() {
+    // in case of abscene of SearchPanel component painters will be loaded anyway
     this.$store.dispatch('painters/loadData');
   },
   methods: {
