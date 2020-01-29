@@ -214,13 +214,14 @@ export default {
       }
     .painter-actions {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
       margin: 20px 0 0;
       padding: 15px 0;
       border-top: 1px dotted $c_gray2;
       @include breakpoint($desktop) {
         flex-basis: calc(1/6 * 100%);
+        justify-content: flex-start;
         flex-direction: column;
         margin: 0;
         padding: 0 0 0 20px;
@@ -236,7 +237,7 @@ export default {
       .request-btn {
         @include btn();
         position: relative;
-        flex-basis: calc(100% - 90px);
+        flex-basis: 50%;
         @include breakpoint($desktop) {
           flex-basis: 100%;
           width: 100%;

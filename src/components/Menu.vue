@@ -102,7 +102,6 @@ export default {
       }
     }
       &__item {
-        padding: 14px;
         border-bottom: 1px solid $c_menu_bg;
         &:last-child {
           border-bottom: 0;
@@ -115,21 +114,24 @@ export default {
           display: none;
           @include breakpoint($desktop) {
             display: block;
-            margin-left: calc(1/6 * 100% - 14px);
+            margin-left: calc(1/6 * 100%);
           }
         }
         &--btn {
           @include breakpoint($desktop) {
             margin-left: auto;
-            padding-right: 0;
+            padding: 0 0 0 14px;
           }
         }
       }
         &__link {
+          display: block;
+          padding: 14px;
           font-size: 1.5rem;
           color: $c_white;
           &:hover {
             text-decoration: none;
+            background: $c_brown_light;
           }
           @include breakpoint($desktop) {
             text-transform: uppercase;
