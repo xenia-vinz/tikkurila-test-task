@@ -30,6 +30,7 @@ export default {
   },
   computed: {
     displayedPainters() {
+      /*
       let filtered = this.$store.getters['painters/getData'] || [];
 
       if (this.selectedTags) {
@@ -43,17 +44,19 @@ export default {
           [order],
         );
       }
-      return filtered;
-    },
-    currentSorting: {
-      get() {
-        return this.$store.getters['sortings/getCurrent'];
+
+      currentSorting: {
+        get() {
+          return this.$store.getters['sortings/getCurrent'];
+        },
       },
-    },
-    selectedTags: {
-      get() {
-        return this.$store.getters['tags/getSelected'];
+      selectedTags: {
+        get() {
+          return this.$store.getters['tags/getSelected'];
+        },
       },
+      */
+      return this.$store.getters['painters/getData'];
     },
   },
   mounted() {
