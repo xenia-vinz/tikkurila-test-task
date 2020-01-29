@@ -1,0 +1,41 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "slug": "terraces",
+      "title": "Terassit"
+    },
+    {
+      "slug": "ceilings",
+      "title": "Katot"
+    },
+    {
+      "slug": "wooden-facades",
+      "title": "Puujulkisivut"
+    },
+    {
+      "slug": "equalization",
+      "title": "Tasoitustyöt"
+    },
+    {
+      "slug": "effect",
+      "title": "Efektimaalaus"
+    },
+    {
+      "slug": "interior",
+      "title": "Sisämaalaukset"
+    },
+    {
+      "slug": "flooring",
+      "title": "Lattiat"
+    },
+    {
+      "slug": "stone",
+      "title": "Kivijulkisivut ja sokkelit"
+    },
+    {
+      "slug": "doors",
+      "title": "Ovet ikkunat ja kalusteet"
+    }
+  ]
+}
