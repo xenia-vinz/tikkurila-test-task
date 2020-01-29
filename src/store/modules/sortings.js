@@ -16,8 +16,7 @@ export default {
   },
   actions: {
     loadData: (context) => {
-      const prefix = process.env.NODE_ENV === 'production' ? '/tikkurila-test-task' : '';
-      const path = `${prefix}/api/sortings.json`;
+      const path = '/api/sortings.json';
 
       Vue.superagent
         .get(path)
