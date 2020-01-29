@@ -30,32 +30,6 @@ export default {
   },
   computed: {
     displayedPainters() {
-      /*
-      let filtered = this.$store.getters['painters/getData'] || [];
-
-      if (this.selectedTags) {
-        filtered = filtered.filter(painter => this.checkTags(painter.tags));
-      }
-      if (this.currentSorting) {
-        const order = this.currentSorting !== 'name' ? 'desc' : 'acs';
-        filtered = this.$_.orderBy(
-          filtered,
-          item => this.tryNumericString(item[this.currentSorting]),
-          [order],
-        );
-      }
-
-      currentSorting: {
-        get() {
-          return this.$store.getters['sortings/getCurrent'];
-        },
-      },
-      selectedTags: {
-        get() {
-          return this.$store.getters['tags/getSelected'];
-        },
-      },
-      */
       return this.$store.getters['painters/getData'];
     },
   },
@@ -63,15 +37,6 @@ export default {
     this.$store.dispatch('painters/loadData');
   },
   methods: {
-    checkTags(tags) {
-      const itemTags = tags.map(tag => tag.slug);
-      const intersection = this.$_.intersection(itemTags, this.selectedTags);
-      const isVisible = this.selectedTags.length ? (intersection.length > 0) : true;
-      return isVisible;
-    },
-    tryNumericString(value) {
-      return (+value || value === '0') ? parseInt(value, 10) : value;
-    },
   },
 };
 </script>

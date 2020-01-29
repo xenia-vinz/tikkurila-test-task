@@ -50,7 +50,27 @@ export default {
           const reponseBody = response.body || {};
 
           if (Object.prototype.hasOwnProperty.call(reponseBody, 'data')) {
-            context.commit('SET_DATA', reponseBody.data);
+            // Temporal sorting on client - the server supposed to return filtered values
+            let filtered = reponseBody.data;
+            if (selectedTags) {
+              filtered = filtered.filter((painter) => {
+                const itemTags = painter.tags.map(tag => tag.slug);
+                const intersection = Vue.$_.intersection(itemTags, selectedTags);
+                return selectedTags.length ? (intersection.length > 0) : true;
+              });
+            }
+            if (currentSorting) {
+              const order = currentSorting !== 'name' ? 'desc' : 'acs';
+              filtered = Vue.$_.orderBy(
+                filtered,
+                (item) => {
+                  const value = item[currentSorting];
+                  return (+value || value === '0') ? parseInt(value, 10) : value;
+                },
+                [order],
+              );
+            }
+            context.commit('SET_DATA', filtered);
           }
           context.commit('SET_REQUEST', null);
         })
@@ -60,6 +80,9 @@ export default {
         });
 
       context.commit('SET_REQUEST', request);
+    },
+    setData: (context, data) => {
+      context.commit('SET_DATA', data);
     },
   },
   getters: {
