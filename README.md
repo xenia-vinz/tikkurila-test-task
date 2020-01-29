@@ -1,5 +1,8 @@
 # Tikkurila
 
+## Live preview
+https://xenia-vinz.github.io/tikkurila-test-task/
+
 ## Project setup
 ```
 npm install
