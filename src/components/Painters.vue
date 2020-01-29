@@ -67,9 +67,7 @@ export default {
       return isVisible;
     },
     tryNumericString(value) {
-      const result = (+value || value === '0') ? parseInt(value, 10) : value;
-      console.log(value, result);
-      return result;
+      return (+value || value === '0') ? parseInt(value, 10) : value;
     },
   },
 };
