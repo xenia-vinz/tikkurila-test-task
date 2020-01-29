@@ -1,4 +1,4 @@
-# tikkurila
+# Tikkurila
 
 ## Project setup
 ```
@@ -20,5 +20,8 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Possible improvements
+
+1) When using tags to filter the list it's possible to see the list isn't animated smoothly.
+2) API requests might be better handled by a separate module.
+3) Decomposing SearchPanel component to three singleton components: search, sorting, tags.
