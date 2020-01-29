@@ -24,7 +24,8 @@ export default {
   },
   actions: {
     loadData: (context) => {
-      const path = '/api/painters.json';
+      const prefix = process.env.NODE_ENV === 'production' ? '/tikkurila-test-task' : '';
+      const path = `${prefix}/api/painters.json`;
       const currentSorting = context.rootGetters['sortings/getCurrent'];
       const selectedTags = context.rootGetters['tags/getSelected'];
       const filtersQuery = {};
