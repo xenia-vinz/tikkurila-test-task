@@ -37,7 +37,11 @@ export default {
       }
       if (this.currentSorting) {
         const order = this.currentSorting !== 'name' ? 'desc' : 'acs';
-        filtered = this.$_.orderBy(filtered, this.currentSorting, [order]);
+        filtered = this.$_.orderBy(
+          filtered,
+          item => this.tryNumericString(item[this.currentSorting]),
+          [order],
+        );
       }
       return filtered;
     },
@@ -61,6 +65,11 @@ export default {
       const intersection = this.$_.intersection(itemTags, this.selectedTags);
       const isVisible = this.selectedTags.length ? (intersection.length > 0) : true;
       return isVisible;
+    },
+    tryNumericString(value) {
+      const result = (+value || value === '0') ? parseInt(value, 10) : value;
+      console.log(value, result);
+      return result;
     },
   },
 };
