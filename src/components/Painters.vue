@@ -26,79 +26,18 @@ export default {
   },
   data() {
     return {
-      painters: [
-        {
-          guid: 'aaa',
-          url: '/company/aaa',
-          name: 'Painter Name1',
-          avatar: '/images/painter-1.jpg',
-          location: 'Vantaa',
-          phone: '050 000 1122',
-          email: 'painter@gmail.com',
-          descripton: '<p>Artisania on sisustusmaalaukseen, tapetointiin, erikois –ja efektimaalaukseen erikoistunut yritys.</p>',
-          projects: '11',
-          feedbacks: '1',
-          tags: [
-            {
-              slug: 'wooden-facades',
-              title: 'Puujulkisivut',
-            },
-            {
-              slug: 'equalization',
-              title: 'Tasoitustyöt',
-            },
-            {
-              slug: 'effect',
-              title: 'Efektimaalaus',
-            },
-            {
-              slug: 'interior',
-              title: 'Sisämaalaukset',
-            },
-            {
-              slug: 'flooring',
-              title: 'Lattiat',
-            },
-            {
-              slug: 'doors',
-              title: 'Ovet ikkunat ja kalusteet',
-            },
-          ],
-        },
-        {
-          guid: 'a1a',
-          url: '/company/bbb',
-          name: 'Painter Name2',
-          avatar: '/images/painter-2.jpg',
-          location: 'Vantaa',
-          phone: '050 000 1122',
-          email: 'painter@gmail.com',
-          descripton: '<p>Artisania on sisustusmaalaukseen, tapetointiin, erikois –ja efektimaalaukseen erikoistunut yritys.</p>',
-          projects: '0',
-          feedbacks: '12',
-          tags: [
-            {
-              slug: 'wooden-facades',
-              title: 'Puujulkisivut',
-            },
-            {
-              slug: 'equalization',
-              title: 'Tasoitustyöt',
-            },
-          ],
-        },
-      ],
     };
   },
   computed: {
     displayedPainters() {
-      let filtered = this.painters;
+      let filtered = this.$store.getters['painters/getData'] || [];
 
       if (this.selectedTags) {
         filtered = filtered.filter(painter => this.checkTags(painter.tags));
       }
       if (this.currentSorting) {
-        filtered = this.$_.orderBy(filtered, this.currentSorting, 'desc');
+        const order = this.currentSorting !== 'name' ? 'desc' : 'acs';
+        filtered = this.$_.orderBy(filtered, this.currentSorting, [order]);
       }
       return filtered;
     },
@@ -113,20 +52,8 @@ export default {
       },
     },
   },
-  created() {
-    this.$store.subscribe((mutation) => {
-      switch (mutation.type) {
-        case 'sortings/SET_CURRENT':
-          // console.log('sortings/SET_CURRENT', mutation.payload);
-          break;
-        case 'tags/SET_SELECTED':
-          // console.log('tags/SET_SELECTED', this.$store.getters['tags/getSelected']);
-          break;
-        default:
-          // do nothing
-          break;
-      }
-    });
+  mounted() {
+    this.$store.dispatch('painters/loadData');
   },
   methods: {
     checkTags(tags) {

@@ -117,5 +117,48 @@ export default new Vuex.Store({
         },
       },
     },
+    painters: {
+      namespaced: true,
+      state: {
+        data: null,
+      },
+      mutations: {
+        SET_DATA(state, data) {
+          Vue.set(state, 'data', data);
+        },
+        SET_SELECTED(state, data) {
+          const itemIndex = Vue.$_.findIndex(state.data, {
+            slug: data.slug,
+          });
+          if (itemIndex !== -1) {
+            Vue.set(state.data[itemIndex], 'selected', data.selected);
+          }
+        },
+      },
+      actions: {
+        loadData: (context) => {
+          const path = '/api/painters.json';
+
+          Vue.superagent
+            .get(path)
+            .accept('json')
+            .then((response) => {
+              const reponseBody = response.body || {};
+
+              if (Object.prototype.hasOwnProperty.call(reponseBody, 'data')) {
+                context.commit('SET_DATA', reponseBody.data);
+              }
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        },
+      },
+      getters: {
+        getData(state) {
+          return state.data;
+        },
+      },
+    },
   },
 });
